@@ -1,7 +1,6 @@
-import numpy as np # Matrices
-
-def main():
-
+import numpy as np
+import cv2 as cv
 
 if __name__ == "__main__":
-    
+
+    print("")
