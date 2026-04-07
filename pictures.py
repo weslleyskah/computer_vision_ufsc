@@ -3,39 +3,32 @@ import cv2 as cv
 
 if __name__ == "__main__":
 
-    img = cv.imread('earth.jpg')
+    img = cv.imread('img/earth.jpg')
 
-    # turn darker pixels into white
-    height, width, _ = img.shape
-    for h in range(height):
-        for w in range(width):
-            pixel = img[h][w]
-            if pixel[0] < 50 and pixel[1] < 50 and pixel[2] < 50:
-                img[h][w] = (255, 255, 255)
-
-    cv.imwrite("earth5.jpg", img)
+    # turn the image to grayscale and save it
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    print(gray.shape)
+    cv.imwrite("img/earth_gray.jpg", gray)
 
 
     
 
     """
+    Additional code for image manipulation:
+    
     print(f'Shape (H, W, C): {img.shape}')
     print(f'Max Pixel Value: {img.max()}')
     print(f'Min Pixel Value: {img.min()}')
 
     # set regions of the image blue and green to 0, leaving only red
-    img2 = cv.rectangle(
-        # coordinates, color, configurations
-        img, (50,50), (100,100), (0,0,255), thickness=24
-    )
-    img2[:,:,0] = 0
-    img2[:,:,1] = 0
-    cv.imwrite("earth2.jpg", img2)
+    img[:,:,0] = 0
+    img[:,:,1] = 0
+    cv.imwrite("img/earth2.jpg", img)
 
     # turn the image to grayscale and save it
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     print(gray.shape)
-    cv.imwrite("earth_gray.jpg", gray)
+    cv.imwrite("img/earth_gray.jpg", gray)
 
     # turn darker pixels into white
     height, width, _ = img.shape
@@ -45,5 +38,5 @@ if __name__ == "__main__":
             if pixel[0] < 50 and pixel[1] < 50 and pixel[2] < 50:
                 img[h][w] = (255, 255, 255)
 
-    cv.imwrite("earth5.jpg", img)
+    cv.imwrite("img/earth3.jpg", img)
     """

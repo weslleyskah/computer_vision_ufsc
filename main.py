@@ -12,4 +12,4 @@ if __name__ == "__main__":
             if pixel[0] < 50 and pixel[1] < 50 and pixel[2] < 50:
                 img[h][w] = (255, 255, 255)
 
-    cv.imwrite("earth5.jpg", img)
+    cv.imwrite("img/earth3.jpg", img)
