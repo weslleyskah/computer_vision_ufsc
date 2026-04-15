@@ -1,23 +1,40 @@
 import numpy as np
 import cv2 as cv
-import random
 
 if __name__ == "__main__":
     
-    space = cv.imread("img/space_noise.jpg")
+    img = cv.imread("img/patent.jpg")
     
-    # space_blur = cv.GaussianBlur(space, (3, 3), 100)
-    space_blur = cv.medianBlur(space, 5)
+    # guarantees the img is in black and white
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
-    cv.imwrite("img/space_blur.jpg", space_blur)
+    # <20 dark -> darker >20 dark -> white
+    _, th = cv.threshold(gray, 200, 255, cv.THRESH_BINARY_INV)
 
-    space_blur_gray = cv.cvtColor(space_blur, cv.COLOR_BGR2GRAY)
-    _, background_mask = cv.threshold(space_blur_gray, 50, 255, cv.THRESH_OTSU)
+    cv.imwrite("img/patent_th.jpg", th)
+    
+    # extract the contour of the image
+    contours, hierarchy = cv.findContours(
+        th, 
+        cv.RETR_EXTERNAL, 
+        cv.CHAIN_APPROX_SIMPLE
+    )
 
-    cv.imwrite("img/space_blur_otsu.jpg", background_mask)
+    # print(f'Contornos: {contours}')
 
-    # Sem blur
+    # original img in the end, make a copy to not modify the original img
+    drawn = cv.drawContours(img.copy(), contours, -1, (0,255,0))
 
-    space_gray = cv.cvtColor(space, cv.COLOR_BGR2GRAY)
-    _, background_mask_no_blur = cv.threshold(space_gray, 50, 255, cv.THRESH_OTSU)
-    cv.imwrite("img/space_blurfalse_otsu.jpg", background_mask_no_blur)
+    cv.imwrite("img/patent_contour.jpg", drawn)
+
+    # filter the contours by area, only keep the ones with area > 200
+    contours_filtered = []
+
+    for contour in contours:
+        #print(cv.contourArea(contour))
+        if cv.contourArea(contour) > 200:
+            contours_filtered.append(contour)
+
+    drawn_filtered = cv.drawContours(img, contours_filtered, -1, (0,255,0))
+
+    cv.imwrite("img/patent_contour_filtered.jpg", drawn_filtered)
