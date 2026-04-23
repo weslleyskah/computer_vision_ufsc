@@ -66,6 +66,7 @@ if __name__ == "__main__":
     # Comparar as cores dos pontos médios dos contornos para encontrar os mais semelhantes e os mais diferentes
 
     similar = defaultdict(set)
+    similar_colors_used = set()
     different = defaultdict(set)
 
     for i, (x_medio, y_medio) in enumerate(medium_points_contours):
@@ -93,13 +94,25 @@ if __name__ == "__main__":
                     )
                     similar[avg_color].add((x_medio, y_medio))
                     similar[avg_color].add((x_medio2, y_medio2))
+                    similar_colors_used.add(color1)
+                    similar_colors_used.add(color2)
                 else:
                     different[color1].add((x_medio, y_medio))
                     different[color2].add((x_medio2, y_medio2))
 
     # tirando as cores similares da lista de cores diferentes
-    for key_color in similar:
-        different.pop(key_color, None)
+    keys_to_remove = []
+    for sim_color in similar_colors_used:
+        for diff_color in different:
+            dist = np.sqrt(
+                (sim_color[0] - diff_color[0])**2
+                + (sim_color[1] - diff_color[1])**2
+                + (sim_color[2] - diff_color[2])**2)
+            if dist <= 30:
+                keys_to_remove.append(diff_color)
+    
+    for key in keys_to_remove:
+        different.pop(key, None)
 
     for s in similar:
         print(f'Similar color: {s} -> Points: {similar[s]}')
