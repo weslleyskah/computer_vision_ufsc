@@ -1,37 +1,36 @@
 import numpy as np
 import cv2 as cv
+from collections import defaultdict
 
 if __name__ == "__main__":
     
+    # Carrega a imagem, transforma em B&W e extrai os contornos 
     img = cv.imread("img/art.png")
     
-    # guarantees the img is in black and white
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
-    # <20 dark -> darker >20 dark -> white
+    # <200 -> dark | >200 -> white
     _, th = cv.threshold(gray, 200, 255, cv.THRESH_BINARY_INV)
 
     cv.imwrite("img/art_th.jpg", th)
 
-    # extract the contour of the image
+    # extrai contornos da imagem 
     contours, hierarchy = cv.findContours(
         th, 
         cv.RETR_EXTERNAL, 
         cv.CHAIN_APPROX_SIMPLE
     )
 
-    # original img in the end, make a copy to not modify the original img
     drawn = cv.drawContours(img.copy(), contours, -1, (100,100,0), 10)
 
     cv.imwrite("img/art_contour.jpg", drawn)
 
     art_contour = cv.imread("img/art_contour.jpg")
 
+    print(f"Encontrados {len(contours)} contornos na imagem.")
 
-    # contours = sorted(contours, key=cv.contourArea, reverse=True)[:7]
-
-    print(f"Encontrados {len(contours)} contornos.")
-
+    # Geometria Analitica: x_m = sum_x / N, y_m = sum_y / N
+    # Para cada contorno, calcular o ponto médio (Xmedio = sum_x/N, Ymedio = sum_y/N) e armazenar em uma lista
     medium_points_contours = []
 
     for contour in contours:
@@ -39,9 +38,9 @@ if __name__ == "__main__":
         sum_y = 0
         n = len(contour)
 
-        # Percorre cada ponto do contorno
+        # Percorre cada ponto do contorno, aumentando a soma das coordenadas X e Y
         for point in contour:
-            x, y = point[0]  # Extrai x e y do array [[x, y]]
+            x, y = point[0]  
             sum_x += x
             sum_y += y
 
@@ -55,49 +54,55 @@ if __name__ == "__main__":
 
     print(f'Centros dos contornos: {medium_points_contours}')
 
-    # Draw a small circle at the center of each contour
+    # Desenha um circulo nos pontos médios dos contornos
     
     img_with_centers = art_contour.copy()
-
-    cv.imwrite("img/art_contour_centers.jpg", img_with_centers)
 
     for x_medio, y_medio in medium_points_contours:
         cv.circle(img_with_centers, (x_medio, y_medio), 5, (100, 100, 100), -1)
 
+    cv.imwrite("img/art_contour_with_centers.jpg", img_with_centers)
 
+    # Comparar as cores dos pontos médios dos contornos para encontrar os mais semelhantes e os mais diferentes
 
+    similar = defaultdict(set)
+    different = defaultdict(set)
 
-    # Find the distances between the centers
-    # if they are small save art_contour[x_medio] and art_contour[x_medio2..], they are of similar colour
-    # similar = [], different = []
-    distances = []
+    for i, (x_medio, y_medio) in enumerate(medium_points_contours):
+        for j, (x_medio2, y_medio2) in enumerate(medium_points_contours):
+            if j > i:
+                color1 = tuple(int(x) for x in art_contour[y_medio, x_medio])
+                color2 = tuple(int(x) for x in art_contour[y_medio2, x_medio2])
+
+                # diferença entre as cores usando a distância dos pixels
+                dist = np.sqrt(
+                    (int(color1[0]) - int(color2[0]))**2
+                    + (int(color1[1]) - int(color2[1]))**2
+                    + (int(color1[2]) - int(color2[2]))**2)
+                
+                print(f'Colors: {color1} vs {color2}')
+                print(f'Distance: {dist}')
+
+                # Considera os pontos medios com cores semelhantes 
+                # se a distância entre as cores desses pontos for menor ou igual a 30
+                if dist <= 30:
+                    avg_color = (
+                        (int(color1[0]) + int(color2[0])) // 2, 
+                        (int(color1[1]) + int(color2[1])) // 2,
+                        (int(color1[2]) + int(color2[2])) // 2
+                    )
+                    similar[avg_color].add((x_medio, y_medio))
+                    similar[avg_color].add((x_medio2, y_medio2))
+                else:
+                    different[color1].add((x_medio, y_medio))
+                    different[color2].add((x_medio2, y_medio2))
+
+    # tirando as cores similares da lista de cores diferentes
+    for key_color in similar:
+        different.pop(key_color, None)
+
+    for s in similar:
+        print(f'Similar color: {s} -> Points: {similar[s]}')
     
-    for x_medio, y_medio in medium_points_contours:
-        print(f'Pixel color at ({x_medio}, {y_medio}): {art_contour[y_medio, x_medio]}')
-        for x_medio2, y_medio2 in medium_points_contours:
-            if (x_medio, y_medio) != (x_medio2, y_medio2):
-                distances.append(np.sqrt( 
-                    (art_contour[y_medio, x_medio][0] - art_contour[y_medio2, x_medio2][0])**2
-                     + (art_contour[y_medio, x_medio][1] - art_contour[y_medio2, x_medio2][1])**2
-                     + (art_contour[y_medio, x_medio][2] - art_contour[y_medio2, x_medio2][2])**2 ) )
-    
-    for d in distances:
-        print(f'Distância entre centros: {d}')
-
-    
-    """
-
-    # print(f'Contornos: {contours}')
-
-    # filter the contours by area, only keep the ones with area > 200
-    contours_filtered = []
-
-    for contour in contours:
-        #print(cv.contourArea(contour))
-        if cv.contourArea(contour) > 200:
-            contours_filtered.append(contour)
-
-    drawn_filtered = cv.drawContours(img, contours_filtered, -1, (0,255,0))
-
-    cv.imwrite("img/patent_contour_filtered.jpg", drawn_filtered)
-    """
+    for d in different:
+        print(f'Different color: {d} -> Point: {different[d]}')
