@@ -3,12 +3,12 @@ import cv2 as cv
 
 if __name__ == "__main__":
 
-    img = cv.imread('img/earth.jpg')
+    img = cv.imread('../data/img/earth.jpg')
 
     # turn the image to grayscale and save it
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     print(gray.shape)
-    cv.imwrite("img/earth_gray.jpg", gray)
+    cv.imwrite("../data/img/earth_gray.jpg", gray)
 
 
     
@@ -23,12 +23,12 @@ if __name__ == "__main__":
     # set regions of the image blue and green to 0, leaving only red
     img[:,:,0] = 0
     img[:,:,1] = 0
-    cv.imwrite("img/earth2.jpg", img)
+    cv.imwrite("../data/img/earth2.jpg", img)
 
     # turn the image to grayscale and save it
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     print(gray.shape)
-    cv.imwrite("img/earth_gray.jpg", gray)
+    cv.imwrite("../data/img/earth_gray.jpg", gray)
 
     # turn darker pixels into white
     height, width, _ = img.shape
@@ -38,5 +38,5 @@ if __name__ == "__main__":
             if pixel[0] < 50 and pixel[1] < 50 and pixel[2] < 50:
                 img[h][w] = (255, 255, 255)
 
-    cv.imwrite("img/earth3.jpg", img)
+    cv.imwrite("../data/img/earth3.jpg", img)
     """

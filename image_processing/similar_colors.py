@@ -5,14 +5,14 @@ from collections import defaultdict
 if __name__ == "__main__":
     
     # Carrega a imagem, transforma em B&W e extrai os contornos 
-    img = cv.imread("img/art.png")
+    img = cv.imread("../data/img/art.png")
     
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
     # <200 -> dark | >200 -> white
     _, th = cv.threshold(gray, 200, 255, cv.THRESH_BINARY_INV)
 
-    cv.imwrite("img/art_th.jpg", th)
+    cv.imwrite("../data/img/art_th.jpg", th)
 
     # extrai contornos da imagem 
     contours, hierarchy = cv.findContours(
@@ -23,9 +23,9 @@ if __name__ == "__main__":
 
     drawn = cv.drawContours(img.copy(), contours, -1, (100,100,0), 10)
 
-    cv.imwrite("img/art_contour.jpg", drawn)
+    cv.imwrite("../data/img/art_contour.jpg", drawn)
 
-    art_contour = cv.imread("img/art_contour.jpg")
+    art_contour = cv.imread("../data/img/art_contour.jpg")
 
     print(f"Encontrados {len(contours)} contornos na imagem.")
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     for x_medio, y_medio in medium_points_contours:
         cv.circle(img_with_centers, (x_medio, y_medio), 5, (100, 100, 100), -1)
 
-    cv.imwrite("img/art_contour_with_centers.jpg", img_with_centers)
+    cv.imwrite("../data/img/art_contour_with_centers.jpg", img_with_centers)
 
     # Comparar as cores dos pontos médios dos contornos para encontrar os mais semelhantes e os mais diferentes
 

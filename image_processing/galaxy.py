@@ -3,7 +3,7 @@ import cv2 as cv
 
 if __name__ == "__main__":
     
-    img = cv.imread("img/space.jpg")
+    img = cv.imread("../data/img/space.jpg")
     height, width, _ = img.shape
     for h in range(height):
         for w in range(width):
@@ -12,7 +12,7 @@ if __name__ == "__main__":
                 img[h][w] = (0, 0, 255)
                 # turn blue color pixels (~255,0,0) into red (0,0,~255)
     
-    cv.imwrite("img/space3.jpg", img)
+    cv.imwrite("../data/img/space3.jpg", img)
 
 
     # Você está tentando fazer uma peça artistica beseado nas imagens do James Webb Telescope.

@@ -4,7 +4,7 @@ import random
 
 if __name__ == "__main__":
     
-    img = cv.imread("img/space.jpg")
+    img = cv.imread("../data/img/space.jpg")
 
     colors = [(205,211,194), (169,164,159), (76,73,86)]
 
@@ -18,7 +18,7 @@ if __name__ == "__main__":
                 img[h][w] = colors[color]
                 # choose a random color for each pixel
     
-    cv.imwrite("img/space_noise.jpg", img)
+    cv.imwrite("../data/img/space_noise.jpg", img)
 
 
     # RGB != BGR opencv

@@ -3,7 +3,7 @@ import cv2 as cv
 
 if __name__ == "__main__":
     
-    img = cv.imread("img/patent.jpg")
+    img = cv.imread("../data/img/patent.jpg")
     
     # guarantees the img is in black and white
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
@@ -11,7 +11,7 @@ if __name__ == "__main__":
     # <20 dark -> darker >20 dark -> white
     _, th = cv.threshold(gray, 200, 255, cv.THRESH_BINARY_INV)
 
-    cv.imwrite("img/patent_th.jpg", th)
+    cv.imwrite("../data/img/patent_th.jpg", th)
     
     # extract the contour of the image
     contours, hierarchy = cv.findContours(
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # original img in the end, make a copy to not modify the original img
     drawn = cv.drawContours(img.copy(), contours, -1, (0,255,0))
 
-    cv.imwrite("img/patent_contour.jpg", drawn)
+    cv.imwrite("../data/img/patent_contour.jpg", drawn)
 
     # filter the contours by area, only keep the ones with area > 200
     contours_filtered = []
@@ -37,4 +37,4 @@ if __name__ == "__main__":
 
     drawn_filtered = cv.drawContours(img, contours_filtered, -1, (0,255,0))
 
-    cv.imwrite("img/patent_contour_filtered.jpg", drawn_filtered)
+    cv.imwrite("../data/img/patent_contour_filtered.jpg", drawn_filtered)
