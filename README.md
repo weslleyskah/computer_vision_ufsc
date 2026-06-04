@@ -1,6 +1,10 @@
-# Computer Vision at UFSC
+# Computer Vision
 
-Computer Vision course at UFSC using Python, OpenCV, Numpy, Matplotlib, Tensorflow and YOLO.
+Repository to study Computer Vision.
+
+[Fire detection](#fire-detection): exploring fire and smoke detection.
+
+[Computer Vision course at UFSC](#computer-vision-course-at-ufsc): study of neural nets and images using Python, OpenCV, Numpy, Matplotlib, Tensorflow and YOLO.
 
 ## Fire Detection
 
@@ -39,7 +43,7 @@ uv pip install ultralytics
 uv run src/main.py
 ```
 
-## Computer Vision course
+## Computer Vision course at UFSC
 
 ## Part I: Images
 
@@ -67,7 +71,7 @@ uv run main.py
 
 | Dependencies |  |
 | --- | --- |
-| [Google Colab](https://colab.research.google.com/) | Environment |
+| [google colab](https://colab.research.google.com/) | Environment |
 | [tensorflow](https://github.com/tensorflow/tensorflow) | Model library |
 | [matplotlib](https://github.com/matplotlib/matplotlib) | Graphics |
 
@@ -77,3 +81,4 @@ uv run main.py
 | neural_net/ | part II: python code and books for NNs |
 | data/img/ | part I: images |
 | image_processing/ | part I: python code for image manipulation |
+| train/ | models, datasets and notebooks |
