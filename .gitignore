@@ -5,3 +5,17 @@ pyproject.toml
 # Virtual environments
 .venv
 uv.lock
+
+# Models
+train/!model/.gitkeep
+train/model/*.pt
+train/model/*.onnx
+
+# Data
+train/data/input/fire_dataset
+train/data/output/fire_dataset/wildfire_dataset
+*.mp4
+*.avi
+
+# Files
+*.ts
