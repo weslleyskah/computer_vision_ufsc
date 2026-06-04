@@ -7,11 +7,11 @@ MODEL_DIR = ROOT / "model"
 MODEL_DIR.mkdir(exist_ok=True) 
 
 # model
-model = YOLO(str(MODEL_DIR / "fire_seg_best.pt"))
+model = YOLO(str(MODEL_DIR / "best.pt"))
 
 # output
 results = model.predict(
-    str(ROOT / "data/input/fire_dataset/wildfire_dataset/"),
+    str(ROOT / "data/input/fire_dataset/wildfire_dataset_videos/"),
     save=True,
     stream=True,
     project=str(ROOT / "data/output/fire_dataset/wildfire_dataset/"),
