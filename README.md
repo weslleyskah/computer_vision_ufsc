@@ -2,7 +2,7 @@
 
 ### [Fire detection](#fire-detection)
 
-Researching fire and smoke detection methods at the VISIA Computer Vision Laboratory (UFSC).
+Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UFSC).
 
 ### [Computer Vision course at UFSC](#computer-vision-course-at-ufsc-1)
  
@@ -27,12 +27,27 @@ Version 2
 ![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_58.gif)
 
 Version 3
+>Only fire, the model forgot the smoke!
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_4.gif)
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_3.gif)
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_26.gif)
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_24.gif)
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_37.gif)
 
 ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_60.gif)
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_76.gif)
 
 ### Datasets
 
 >Combine datasets (fire+smoke) and annotate smokes so the model won't forget. 
+
+>Improve training with nofire environments without labels on the background.
 
 - Wildfire Images: [dataset I](https://universe.roboflow.com/roboflow-universe-projects/fire-and-smoke-segmentation), [dataset II](https://universe.roboflow.com/uzai-kha-s-workspace/forest_fire-aggsg)
 
