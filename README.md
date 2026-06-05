@@ -4,7 +4,7 @@
 
 Researching fire and smoke detection methods at the VISIA Computer Vision Laboratory (UFSC).
 
-### [Computer Vision course at UFSC](#computer-vision-course-at-ufsc)
+### [Computer Vision course at UFSC](#computer-vision-course-at-ufsc-1)
  
  A computer vision course taught during the first semester of 2026 at the Universidade Federal de Santa Catarina (UFSC), covering the study of neural networks and image processing using Python, OpenCV, NumPy, Matplotlib, TensorFlow, and YOLO.
 
