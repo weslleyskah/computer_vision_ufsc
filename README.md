@@ -10,13 +10,27 @@ Repository to study Computer Vision.
 
 ### Detections
 
-![Wildfire Detection Model](train/data/output/fire_dataset/wildfire_59.gif)
+Version 2
 
-![Wildfire Detection Model](train/data/output/fire_dataset/wildfire_63.gif)
+![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_60.gif)
 
-![Wildfire Detection Model](train/data/output/fire_dataset/wildfire_17.gif)
+![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_61.gif)
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_63.gif)
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_67.gif)
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_76.gif)
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_58.gif)
+
+Version 3
+
+![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_60.gif)
 
 ### Datasets
+
+>Combine datasets (fire+smoke) and annotate smokes so the model won't forget. 
 
 - Wildfire Images: [dataset I](https://universe.roboflow.com/roboflow-universe-projects/fire-and-smoke-segmentation), [dataset II](https://universe.roboflow.com/uzai-kha-s-workspace/forest_fire-aggsg)
 
@@ -79,6 +93,5 @@ uv run main.py
 | Folder |  Description |
 | --- | --- |
 | neural_net/ | part II: python code and books for NNs |
-| data/img/ | part I: images |
 | image_processing/ | part I: python code for image manipulation |
 | train/ | models, datasets and notebooks |
