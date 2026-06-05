@@ -14,32 +14,21 @@ Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UF
 
 Version 2
 
-![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_60.gif)
-
-![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_61.gif)
-
-![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_63.gif)
-
-![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_67.gif)
-
-![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_76.gif)
-
-![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_58.gif)
+| | |
+| --- | --- |
+| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_60.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_60.gif) |
+| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_61.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_61.gif) |
 
 Version 3
 >Only fire, the model forgot the smoke!
 
-![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_4.gif)
-
-![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_3.gif)
-
-![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_26.gif)
-
-![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_24.gif)
-
-![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_60.gif)
-
-![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_76.gif)
+| | |
+| --- | --- |
+| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_4.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_4.gif) |
+| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_26.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_26.gif) |
+| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_24.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_24.gif) |
+| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_60.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_60.gif) |
+| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_76.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_76.gif) |
 
 ### Datasets
 
