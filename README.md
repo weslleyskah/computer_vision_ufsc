@@ -1,10 +1,12 @@
 # Computer Vision
 
-Repository to study Computer Vision.
+### [Fire detection](#fire-detection)
 
-[Fire detection](#fire-detection): exploring fire and smoke detection.
+Researching fire and smoke detection methods at the VISIA Computer Vision Laboratory (UFSC).
 
-[Computer Vision course at UFSC](#computer-vision-course-at-ufsc): study of neural nets and images using Python, OpenCV, Numpy, Matplotlib, Tensorflow and YOLO.
+### [Computer Vision course at UFSC](#computer-vision-course-at-ufsc)
+ 
+ A computer vision course taught during the first semester of 2026 at the Universidade Federal de Santa Catarina (UFSC), covering the study of neural networks and image processing using Python, OpenCV, NumPy, Matplotlib, TensorFlow, and YOLO.
 
 ## Fire Detection
 
