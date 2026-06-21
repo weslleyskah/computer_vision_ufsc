@@ -11,10 +11,10 @@ model = YOLO(str(MODEL_DIR / "fireseg_v3.pt"))
 
 # output
 results = model.predict(
-    str(ROOT / "data/input/fire_dataset/wildfire_dataset_videos/wildfire_video_76.mp4"),
+    str(ROOT / "C:/Users/weslley/Desktop/work/computer_vision_ufsc/train/data/wildfire_videos/wildfire_videos_53.mp4"),
     save=True,
     stream=True,
-    project=str(ROOT / "data/output/fire_dataset/"),
+    project=str(ROOT / "data/output/"),
     name="",
     conf=0.70 # confidence threshold
 )

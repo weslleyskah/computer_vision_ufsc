@@ -12,22 +12,11 @@ Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UF
 
 ### Detections
 
-Version 2
-
-| | |
+| Original | Output |
 | --- | --- |
-| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_60.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_60.gif) |
-| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_61.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v2/wildfire_video_61.gif) |
-
-Version 3
->Only fire, the model forgot the smoke!
-
-| | |
-| --- | --- |
-| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_4.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_4.gif) |
-| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_26.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_26.gif) |
-| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_24.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_24.gif) |
-| ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_original_video_76.gif) | ![Wildfire Detection Model](train/data/output/fire_dataset/v3/wildfire_video_76.gif) |
+| ![Wildfire Detection Model](train/data/slides/detections/wildfire_original_video_0.gif) | ![Wildfire Detection Model](train/data/slides/detections/wildfire_video_0.gif) |
+| ![Wildfire Detection Model](train/data/slides/detections/wildfire_original_video_1.gif) | ![Wildfire Detection Model](train/data/slides/detections/wildfire_video_1.gif) |
+| ![Wildfire Detection Model](train/data/slides/detections/wildfire_original_video_2.gif) | ![Wildfire Detection Model](train/data/slides/detections/wildfire_video_2.gif) |
 
 ### Datasets
 
