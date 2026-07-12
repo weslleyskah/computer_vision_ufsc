@@ -14,9 +14,11 @@ Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UF
 
 | Original | Output |
 | --- | --- |
-| ![Wildfire Detection Model](train/data/slides/detections/wildfire_original_video_0.gif) | ![Wildfire Detection Model](train/data/slides/detections/wildfire_video_0.gif) |
-| ![Wildfire Detection Model](train/data/slides/detections/wildfire_original_video_1.gif) | ![Wildfire Detection Model](train/data/slides/detections/wildfire_video_1.gif) |
-| ![Wildfire Detection Model](train/data/slides/detections/wildfire_original_video_2.gif) | ![Wildfire Detection Model](train/data/slides/detections/wildfire_video_2.gif) |
+| ![Wildfire Detection Model](data/slides/detections/wildfire_original_video_0.gif) | ![Wildfire Detection Model](data/slides/detections/wildfire_video_0.gif) |
+| ![Wildfire Detection Model](data/slides/detections/wildfire_original_video_1.gif) | ![Wildfire Detection Model](data/slides/detections/wildfire_video_1.gif) |
+| ![Wildfire Detection Model](data/slides/detections/wildfire_original_video_2.gif) | ![Wildfire Detection Model](data/slides/detections/wildfire_video_2.gif) |
+
+>fireseg_v3.pt
 
 ### Datasets
 
@@ -24,7 +26,15 @@ Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UF
 
 > Improve training with nofire environments without labels on the background.
 
-**Wildfire Images**: [dataset I](https://universe.roboflow.com/roboflow-universe-projects/fire-and-smoke-segmentation), [dataset II](https://universe.roboflow.com/uzai-kha-s-workspace/forest_fire-aggsg), [dataset III](https://etsin.fairdata.fi/dataset/1dce1023-493a-4d63-a906-f2a44f831898/data)
+**Datasets**: [dataset I](https://universe.roboflow.com/roboflow-universe-projects/fire-and-smoke-segmentation), [dataset II](https://universe.roboflow.com/uzai-kha-s-workspace/forest_fire-aggsg), [dataset III](https://etsin.fairdata.fi/dataset/1dce1023-493a-4d63-a906-f2a44f831898/data)
+
+**Articles**
+
+The Wildfire Dataset Enhancing Deep Learning-Based Forest Fire Detection: [article](https://www.mdpi.com/1999-4907/14/9/1697),  [document](articles/Wildfire%20Dataset%20Enhancing%20Deep%20Learning-Based%20Forest%20Fire%20Detection.pdf), [dataset](https://www.kaggle.com/datasets/elmadafri/the-wildfire-dataset)
+
+A Small Target Forest Fire Detection Model Based on YOLOv5 Improvement: [article](https://www.mdpi.com/1999-4907/13/8/1332)
+
+A Small-Target Forest Fire Smoke Detection Model Based on Deformable Transformer for End-to-End Object Detection: [article](https://www.mdpi.com/1999-4907/14/1/162)
 
 ---
 

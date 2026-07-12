@@ -1,23 +1,19 @@
-# Python
-.python-version
-pyproject.toml
-
-# Virtual environments
-.venv
-uv.lock
-
 # Models
-train/!model/.gitkeep
-train/model/*.pt
-train/model/*.onnx
+#*.pt
+*.onnx
 
 # Data
-train/data/input/
-#train/data/output/fire_dataset/
-train/data/output/fire_dataset/predict
-train/data/output/fire_dataset/predict-2
+*.zip
 *.mp4
 *.avi
+data/datasets
+data/output
 
 # Files
 *.ts
+
+# Virtual Environment
+.venv
+uv.lock
+.python-version
+pyproject.toml
