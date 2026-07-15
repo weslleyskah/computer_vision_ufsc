@@ -14,19 +14,23 @@ Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UF
 
 | Original | Output |
 | --- | --- |
-| ![Wildfire Detection Model](data/slides/detections/wildfire_original_video_0.gif) | ![Wildfire Detection Model](data/slides/detections/wildfire_video_0.gif) |
-| ![Wildfire Detection Model](data/slides/detections/wildfire_original_video_1.gif) | ![Wildfire Detection Model](data/slides/detections/wildfire_video_1.gif) |
-| ![Wildfire Detection Model](data/slides/detections/wildfire_original_video_2.gif) | ![Wildfire Detection Model](data/slides/detections/wildfire_video_2.gif) |
+| ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/notredame3_original.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/notredame3.gif) |
+| ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/notredame_original.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/notredame.gif) |
+| ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_original_video_0.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_video_0.gif) |
+| ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_original_video_1.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_video_1.gif) |
+| ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_original_video_2.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_video_2.gif) |
 
->fireseg_v3.pt
+>firesmoke4_seg: best.pt | best mAP50 (box): 0.697 at epoch 141, best mAP50 (mask): 0.595 at epoch 96 | epochs=300, imgsz=640, batch=32, lr0=0.0005, lrf=0.01, cos_lr=True, warmup_epochs=1.0, mixup=0.15, copy_paste=0.3, mosaic=1.0 | roboflow aug: grayscale 15%, brightness: 10% 
 
 ### Datasets
 
-> Combine datasets (fire+smoke) and annotate smokes so the model won't forget.
+> Combine balanced fire and smoke datasets
 
-> Improve training with nofire environments without labels on the background.
+> Improve training with augmentations, parameters, null-imgs
 
-**Datasets**: [dataset I](https://universe.roboflow.com/roboflow-universe-projects/fire-and-smoke-segmentation), [dataset II](https://universe.roboflow.com/uzai-kha-s-workspace/forest_fire-aggsg), [dataset III](https://etsin.fairdata.fi/dataset/1dce1023-493a-4d63-a906-f2a44f831898/data)
+> SAM3 / NVIDIA LocateAnything auto-label annotations are causing problems and false metrics
+
+**Datasets**: [Fire and Smoke](https://www.kaggle.com/datasets/weslleyskah/fire-smoke-segmentation-dataset-10th)
 
 **Articles**
 
