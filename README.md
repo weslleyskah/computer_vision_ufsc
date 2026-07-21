@@ -1,16 +1,26 @@
 # Computer Vision
 
-### [Fire detection](#fire-detection-1)
-
-Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UFSC).
-
-### [Computer Vision course at UFSC](#computer-vision-course-at-ufsc-1)
+## Computer Vision course at UFSC
  
  A computer vision course taught during the first semester of 2026 at the Universidade Federal de Santa Catarina (UFSC), covering the study of neural networks and image processing using Python, OpenCV, NumPy, Matplotlib, TensorFlow, and YOLO.
 
-## Fire Detection
+## Fire and Smoke Project
+
+Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UFSC).
 
 ### Detections
+
+#### **Bounding Box**
+
+>flame_smoke_detection_box: best.pt (fine-tune) | best mAP50 (box): 
+
+>Params: epochs=100, imgsz=640, batch=256, workers=12, optimizer='auto', lr0=0.0002, lrf=0.01, cos_lr=True, warmup_epochs=1.0, weight_decay=0.0005, cls=0.5, mosaic=0.8, close_mosaic=30, mixup=0.05, hsv_h=0.15, hsv_s=0.5, hsv_v=0.5, degrees=0.0, scale=0.3, translate=0.05, fliplr=0.5, flipud=0.0
+
+#### **Segmentation**
+
+>firesmoke4_seg: yolo26n-seg.pt | best mAP50 (box): 0.697, best mAP50 (mask): 0.595 
+
+>Params: epochs=300, imgsz=640, batch=32, lr0=0.0005, lrf=0.01, cos_lr=True, warmup_epochs=1.0, mixup=0.15, copy_paste=0.3, mosaic=1.0 | roboflow aug: grayscale 15%, brightness: 10% 
 
 | Original | Output |
 | --- | --- |
@@ -20,72 +30,35 @@ Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UF
 | ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_original_video_1.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_video_1.gif) |
 | ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_original_video_2.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_video_2.gif) |
 
->firesmoke4_seg: best.pt | best mAP50 (box): 0.697 at epoch 141, best mAP50 (mask): 0.595 at epoch 96 | epochs=300, imgsz=640, batch=32, lr0=0.0005, lrf=0.01, cos_lr=True, warmup_epochs=1.0, mixup=0.15, copy_paste=0.3, mosaic=1.0 | roboflow aug: grayscale 15%, brightness: 10% 
+## Articles
 
-### Datasets
+"An open flame and smoke detection dataset for deep learning in remote sensing based fire detection"
 
-> Combine balanced fire and smoke datasets
+>[document](articles/An%20open%20flame%20and%20smoke%20detection%20dataset%20for%20deep%20learning%20in%20remote%20sensing%20based%20fire%20detection.pdf), [dataset](https://universe.roboflow.com/forestfiresmoke/fasdd_cv-dx83j)
 
-> Improve training with augmentations, parameters, null-imgs
+"The Wildfire Dataset Enhancing Deep Learning-Based Forest Fire Detection" 
 
-> SAM3 / NVIDIA LocateAnything auto-label annotations are causing problems and false metrics
+>[document](articles/Wildfire%20Dataset%20Enhancing%20Deep%20Learning-Based%20Forest%20Fire%20Detection.pdf), [dataset](https://www.kaggle.com/datasets/elmadafri/the-wildfire-dataset)
 
-**Datasets**: [Fire and Smoke](https://www.kaggle.com/datasets/weslleyskah/fire-smoke-segmentation-dataset-10th)
+## Notes
 
-**Articles**
+> Use reliable datasets from articles with a balanced number of classes for fire, smoke and null images.
 
-The Wildfire Dataset Enhancing Deep Learning-Based Forest Fire Detection: [article](https://www.mdpi.com/1999-4907/14/9/1697),  [document](articles/Wildfire%20Dataset%20Enhancing%20Deep%20Learning-Based%20Forest%20Fire%20Detection.pdf), [dataset](https://www.kaggle.com/datasets/elmadafri/the-wildfire-dataset)
+> Improve training with augmentations, parameters, and null-imgs.
 
-A Small Target Forest Fire Detection Model Based on YOLOv5 Improvement: [article](https://www.mdpi.com/1999-4907/13/8/1332)
+> SAM3 / NVIDIA LocateAnything auto-label annotations are causing problems and false metrics.
 
-A Small-Target Forest Fire Smoke Detection Model Based on Deformable Transformer for End-to-End Object Detection: [article](https://www.mdpi.com/1999-4907/14/1/162)
+**Dependencies**: uv, ultralytics yolo, google colab, tensorflow, opencv
 
----
-
-### Notes
-
-**Dependencies**: [uv](https://github.com/astral-sh/uv), [opencv](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html), ultralytics
-
-**Dataset sites**: [roboflow](https://roboflow.com/), [open images v7](https://storage.googleapis.com/openimages/web/index.html), [aws open data](https://registry.opendata.aws/), [huggingface](https://huggingface.co/datasets)
+**Datasets**: [roboflow](https://roboflow.com/), [open images v7](https://storage.googleapis.com/openimages/web/index.html), [aws open data](https://registry.opendata.aws/), [huggingface](https://huggingface.co/datasets)
 
 **Annotations**: [CVAT](https://app.cvat.ai), roboflow
 
 ---
 
-### Setup
-
-```bash
-uv venv
-uv pip install ultralytics
-uv run src/main.py
-```
-
-## Computer Vision course at UFSC
-
-## Part I: Images
-
-### Setup
-
-```bash
-cd project_folder
-uv venv
-uv pip install -r requirements.txt
-uv run main.py
-```
-
-**Dependencies**: [uv](https://github.com/astral-sh/uv), [opencv](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html), [numpy](https://github.com/numpy/numpy)
-
----
-
-## Part II: Neural Nets
-
-**Datasets**: [roboflow](https://roboflow.com/), [open images v7](https://storage.googleapis.com/openimages/web/index.html), [aws open data](https://registry.opendata.aws/), [huggingface](https://huggingface.co/datasets), [fashion-mnist](https://github.com/zalandoresearch/fashion-mnist)
-
-**Dependencies**: [google colab](https://colab.research.google.com/), [tensorflow](https://github.com/tensorflow/tensorflow), [matplotlib](https://github.com/matplotlib/matplotlib)
-
 ## Structure
 | Folder |  Description |
 | --- | --- |
-| neural_net/ | part II: python code and books for NNs |
-| image_processing/ | part I: python code for image manipulation |
-| train/ | models, datasets and notebooks |
+| neural_net/ | python code and books for NNs |
+| image_processing/ | python code for image manipulation |
+| models/ | trained models for fire and smoke detection |

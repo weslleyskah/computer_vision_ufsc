@@ -7,11 +7,11 @@ ROOT = Path(__file__).parent.parent
 #MODEL_DIR.mkdir(exist_ok=True) 
 
 # model
-model = YOLO(str("C:/Users/weslley/Desktop/work/computer_vision_ufsc/models/firesmoke_4_seg/weights/best.pt"))
+model = YOLO(str("C:/Users/weslley/Desktop/work/computer_vision_ufsc/models/firesmoke_4_2_yolo26n-seg/weights/best.pt"))
 
 # output
 results = model.predict(
-    str(ROOT / "C:/Users/weslley/Desktop/work/computer_vision_ufsc/data/datasets/notredame/notredame2.mp4"),
+    str(ROOT / "C:/Users/weslley/Desktop/work/computer_vision_ufsc/data/datasets/notredame"),
     save=True,
     stream=True,
     project=str(ROOT / "data/"),
