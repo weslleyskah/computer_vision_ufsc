@@ -8,27 +8,44 @@
 
 Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UFSC).
 
+>model: https://huggingface.co/weslleyskah/fire_smoke_detection_box
+
+>dataset: https://huggingface.co/datasets/weslleyskah/fire_smoke_dataset_fasdd_cv
+
 ### Detections
 
 #### **Bounding Box**
 
->flame_smoke_detection_box: best.pt (fine-tune) | best mAP50 (box): 
+>name: fire_smoke_box | model: yolo26n.pt | best map50 (box): 0.772 | dataset: fasdd_cv [article 1] [total:95k, fire(only):12.5k, smoke(only):23.3k, fire+smoke:20.1k, null:39.1k]
 
->Params: epochs=100, imgsz=640, batch=256, workers=12, optimizer='auto', lr0=0.0002, lrf=0.01, cos_lr=True, warmup_epochs=1.0, weight_decay=0.0005, cls=0.5, mosaic=0.8, close_mosaic=30, mixup=0.05, hsv_h=0.15, hsv_s=0.5, hsv_v=0.5, degrees=0.0, scale=0.3, translate=0.05, fliplr=0.5, flipud=0.0
-
-#### **Segmentation**
-
->firesmoke4_seg: yolo26n-seg.pt | best mAP50 (box): 0.697, best mAP50 (mask): 0.595 
-
->Params: epochs=300, imgsz=640, batch=32, lr0=0.0005, lrf=0.01, cos_lr=True, warmup_epochs=1.0, mixup=0.15, copy_paste=0.3, mosaic=1.0 | roboflow aug: grayscale 15%, brightness: 10% 
+>parameters: epochs=100, imgsz=640, batch=256, workers=12, patience=30
 
 | Original | Output |
 | --- | --- |
-| ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/notredame3_original.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/notredame3.gif) |
-| ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/notredame_original.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/notredame.gif) |
-| ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_original_video_0.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_video_0.gif) |
-| ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_original_video_1.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_video_1.gif) |
-| ![original](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_original_video_2.gif) | ![output](models/firesmoke_4_seg/firesmoke_4_seg-detections/wildfire_video_2.gif) |
+| ![original](models/fire_smoke_box/fire_smoke_box-detections/notredame3_original.gif) | ![output](models/fire_smoke_box/fire_smoke_box-detections/notredame3.gif) |
+| ![original](models/fire_smoke_box/fire_smoke_box-detections/notredame_original.gif) | ![output](models/fire_smoke_box/fire_smoke_box-detections/notredame.gif) |
+| ![original](models/fire_smoke_box/fire_smoke_box-detections/wildfire_videos_0_original.gif) | ![output](models/fire_smoke_box/fire_smoke_box-detections/wildfire_videos_0.gif) |
+| ![original](models/fire_smoke_box/fire_smoke_box-detections/wildfire_videos_1_original.gif) | ![output](models/fire_smoke_box/fire_smoke_box-detections/wildfire_videos_1.gif) |
+| ![original](models/fire_smoke_box/fire_smoke_box-detections/wildfire_videos_2_original.gif) | ![output](models/fire_smoke_box/fire_smoke_box-detections/wildfire_videos_2.gif) |
+| ![original](models/fire_smoke_box/fire_smoke_box-detections/wildfire_videos_3_original.gif) | ![output](models/fire_smoke_box/fire_smoke_box-detections/wildfire_videos_3.gif) |
+| ![original](models/fire_smoke_box/fire_smoke_box-detections/urban_fire_0_original.jpg) | ![output](models/fire_smoke_box/fire_smoke_box-detections/urban_fire_0.jpg) |
+| ![original](models/fire_smoke_box/fire_smoke_box-detections/urban_fire_1_original.jpg) | ![output](models/fire_smoke_box/fire_smoke_box-detections/urban_fire_1.jpg) |
+| ![original](models/fire_smoke_box/fire_smoke_box-detections/urban_fire_2_original.jpg) | ![output](models/fire_smoke_box/fire_smoke_box-detections/urban_fire_2.jpg) |
+
+#### **Segmentation**
+
+>name: fire_smoke_seg | model:yolo26n-seg.pt | best map50 (box): 0.697, best map50 (mask): 0.595 | dataset: [article 2 + sam3]
+
+>parameters: epochs=300, imgsz=640, batch=32, lr0=0.0005, lrf=0.01, cos_lr=True, warmup_epochs=1.0, mixup=0.15, copy_paste=0.3, mosaic=1.0 | roboflow aug: grayscale 15%, brightness: 10% 
+
+| Original | Output |
+| --- | --- |
+| ![original](models/fire_smoke_seg/fire_smoke_seg-detections/notredame3_original.gif) | ![output](models/fire_smoke_seg/fire_smoke_seg-detections/notredame3.gif) |
+| ![original](models/fire_smoke_seg/fire_smoke_seg-detections/notredame_original.gif) | ![output](models/fire_smoke_seg/fire_smoke_seg-detections/notredame.gif) |
+| ![original](models/fire_smoke_seg/fire_smoke_seg-detections/wildfire_videos_0_original.gif) | ![output](models/fire_smoke_seg/fire_smoke_seg-detections/wildfire_videos_0.gif) |
+| ![original](models/fire_smoke_seg/fire_smoke_seg-detections/wildfire_videos_1_original.gif) | ![output](models/fire_smoke_seg/fire_smoke_seg-detections/wildfire_videos_1.gif) |
+| ![original](models/fire_smoke_seg/fire_smoke_seg-detections/wildfire_videos_2_original.gif) | ![output](models/fire_smoke_seg/fire_smoke_seg-detections/wildfire_videos_2.gif) |
+| ![original](models/fire_smoke_seg/fire_smoke_seg-detections/wildfire_videos_3_original.gif) | ![output](models/fire_smoke_seg/fire_smoke_seg-detections/wildfire_videos_3.gif) |
 
 ## Articles
 
@@ -53,6 +70,41 @@ Research of fire and smoke detection at the VISIA Computer Vision Laboratory (UF
 **Datasets**: [roboflow](https://roboflow.com/), [open images v7](https://storage.googleapis.com/openimages/web/index.html), [aws open data](https://registry.opendata.aws/), [huggingface](https://huggingface.co/datasets)
 
 **Annotations**: [CVAT](https://app.cvat.ai), roboflow
+
+**Scripts**
+
+>transform videos to gif
+```bash
+FOR %a IN (*.mp4 *.avi) DO ffmpeg -i "%a" -vf "fps=8,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=64[p];[s1][p]paletteuse=dither=none" -loop 0 "%~na.gif"
+```
+
+>push model and dataset to huggingface
+```python
+# uv venv
+# uv pip install huggingface_hub
+# uv run main.py
+from huggingface_hub import login, upload_file, upload_folder
+
+# Login
+login()
+
+# Push dataset
+"""
+upload_file(
+    path_or_fileobj="FASDD_CV.zip",      # Your local file path
+    path_in_repo="FASDD_CV.zip",         # The name the file will have on the Hub
+    repo_id="weslleyskah/fasdd_cv",      # Your target repository
+    repo_type="dataset"                  # Flagging it as a dataset repo
+)
+"""
+
+# Push model
+upload_folder(
+    folder_path="fire_smoke_box", 
+    repo_id="weslleyskah/fire_smoke_box", 
+    repo_type="model"
+)
+```
 
 ---
 
